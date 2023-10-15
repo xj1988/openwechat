@@ -2,6 +2,7 @@ package openwechat
 
 import (
 	"context"
+	"fmt"
 )
 
 // LoginCode 定义登录状态码
@@ -255,10 +256,16 @@ func (l *LoginChecker) CheckLogin() error {
 		// 长轮询检查是否扫码登录
 		resp, err := l.Bot.Caller.CheckLogin(l.Bot.Context(), uuid, tip)
 		if err != nil {
+
+			fmt.Println("长轮询检查是否扫码登录异常1")
+
 			return err
 		}
 		code, err := resp.Code()
 		if err != nil {
+
+			fmt.Println("长轮询检查是否扫码登录异常2")
+
 			return err
 		}
 		if tip == "1" {

@@ -172,6 +172,9 @@ func TestBot(t *testing.T) {
 
 	// 登陆
 	if err := bot.Login(); err != nil {
+
+		fmt.Println("登陆打印异常")
+
 		fmt.Println(err)
 		return
 	}
